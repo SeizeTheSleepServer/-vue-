@@ -1,0 +1,251 @@
+/* 气泡浮动背景 - 公共CSS */
+body{
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #b3e5c8, #68b587);
+}
+.bubble-bg::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+  background-size: cover;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: float 15s infinite ease-in-out;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 气泡尺寸和位置 */
+.bubble:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 70%;
+  animation-delay: -2s;
+}
+
+.bubble:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 10%;
+  animation-delay: -5s;
+}
+
+.bubble:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 50%;
+  animation-delay: -3s;
+}
+
+.bubble:nth-child(5) {
+  width: 150px;
+  height: 150px;
+  top: 40%;
+  left: 85%;
+  animation-delay: -7s;
+}
+
+/* 气泡浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-50px) translateX(20px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(-100px) translateX(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-70px) translateX(15px) rotate(-10deg);
+  }
+}
+
+
+.entry-button {
+  background: #fff;
+  color: #43e687;
+  border: none;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  outline: none;
+  letter-spacing: 1px;
+  /* 移除 margin 使用 Flex 居中 */
+  width: 200px;
+  /* 添加文本居中确保文字居中 */
+  text-align: center;
+}
+
+
+.entry-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: #f8f9ff;
+}
+
+.entry-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+button {
+  position: relative;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  background: rgb(226, 244, 225);
+  backdrop-filter: blur(8px);
+  color: #34e112;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* 确保按钮在气泡之上 */
+}
+
+
+/* 按钮悬停效果 */
+button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 按钮点击效果 */
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 基础输入框样式 */
+input {
+  width: 50%;
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #000000;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 输入框文字颜色 */
+input::placeholder {
+  color: rgba(18, 158, 4, 0.6);
+}
+
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}
+
+pre {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+
+  margin-bottom: 1.75rem;
+  text-align: justify;
+  hyphens: auto;
+
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* 首行缩进 */
+  text-indent: 1.5em;
+
+  /* 装饰与效果 */
+  position: relative;
+  padding: 0.2rem 0;
+
+  /* 新增：解决长文本溢出问题 */
+  overflow-wrap: break-word;    /* 允许在单词内断行 */
+  word-break: break-word;       /* 确保超长单词换行 */
+  white-space: pre-wrap;        /* 保留空格同时允许换行 */
+}
+
+/* 段落首行特殊效果 */
+pre:first-of-type {
+  text-indent: 0;
+}
+
+pre:first-of-type::first-letter {
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.1em;
+  color: #037e05;
+  font-weight: 700;
+}
+
+/* 段落分隔线 */
+pre + pre {
+  border-top: 1px solid rgba(52, 152, 219, 0.15);
+  padding-top: 1.5rem;
+}
+
+/* 段落悬停效果 */
+pre:hover {
+  background: rgba(236, 240, 241, 0.5);
+  transition: background 0.3s ease;
+}
+
+/* 引用样式 */
+pre.quote {
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #7f8c8d;
+  text-align: center;
+  border-left: 4px solid #4ccd39;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  text-indent: 0;
+  max-width: 85%;
+  margin: 2.5rem auto;
+
+  /* 确保引用块内也应用断词 */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
